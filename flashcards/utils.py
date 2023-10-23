@@ -1,5 +1,10 @@
+"""
+Integration with openai to generate 'flashcards' in csv form
+based on course content
+"""
+
 import openai
-from flashcards.settings.private import OPENAI_API_KEY
+from flashcards.settings.private import OPENAI_API_KEY # pylint: disable=import-error,no-name-in-module
 
 openai.api_key = OPENAI_API_KEY
 
@@ -181,7 +186,7 @@ messages = [
 
 
 c3 = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo", 
+    model="gpt-3.5-turbo",
     messages=messages,
     temperature=1.0,
 )
@@ -189,7 +194,7 @@ c3 = openai.ChatCompletion.create(
 print(c3['choices'][0]['message']['content'])
 
 # c4 = openai.ChatCompletion.create(
-#     model="gpt-4", 
+#     model="gpt-4",
 #     messages=messages,
 #     temperature=1.0,
 # )
