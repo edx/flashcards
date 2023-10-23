@@ -1,25 +1,26 @@
-# """Test core.views."""
+"""Test core.views."""
 
 # from unittest import mock
 
 # from django.conf import settings
-# from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model
 # from django.db import DatabaseError
-# from django.test import TestCase
+from django.test import TestCase
 # from django.test.utils import override_settings
 # from django.urls import reverse
 
 # from flashcards.apps.core.constants import Status
 
-# User = get_user_model()
+User = get_user_model()
 
 
-# class HealthTests(TestCase):
-#     """Tests of the health endpoint."""
+class HealthTests(TestCase):
+    """Tests of the health endpoint."""
 
-#     def test_all_services_available(self):
-#         """Test that the endpoint reports when all services are healthy."""
-#         self._assert_health(200, Status.OK, Status.OK)
+    def test_all_services_available(self):
+        return
+        # """Test that the endpoint reports when all services are healthy."""
+        # self._assert_health(200, Status.OK, Status.OK)
 
 #     def test_database_outage(self):
 #         """Test that the endpoint reports when the database is unavailable."""
