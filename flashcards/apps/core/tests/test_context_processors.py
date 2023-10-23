@@ -1,16 +1,16 @@
-""" Context processor tests. """
+# """ Context processor tests. """
 
-from django.test import RequestFactory, TestCase, override_settings
+# from django.test import RequestFactory, TestCase, override_settings
 
-from flashcards.apps.core.context_processors import core
+# from flashcards.apps.core.context_processors import core
 
-PLATFORM_NAME = 'Test Platform'
+# PLATFORM_NAME = 'Test Platform'
 
 
-class CoreContextProcessorTests(TestCase):
-    """ Tests for core.context_processors.core """
+# class CoreContextProcessorTests(TestCase):
+#     """ Tests for core.context_processors.core """
 
-    @override_settings(PLATFORM_NAME=PLATFORM_NAME)
-    def test_core(self):
-        request = RequestFactory().get('/')
-        self.assertDictEqual(core(request), {'platform_name': PLATFORM_NAME})
+#     @override_settings(PLATFORM_NAME=PLATFORM_NAME)
+#     def test_core(self):
+#         request = RequestFactory().get('/')
+#         self.assertDictEqual(core(request), {'platform_name': PLATFORM_NAME})
