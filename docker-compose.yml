@@ -1,7 +1,9 @@
 version: "2.1"
 services:
   db:
-    image: mysql:8.0
+    # Oracle-packaged version includes a `linux/arm64/v8` version, needed for
+    # machines with Apple Silicon CPUs (Mac M1, M2)
+    image: mysql:8.0.33-oracle
     container_name: flashcards.db
     environment:
       # See how these environment variables being used at https://github.com/mysql/mysql-docker/blob/mysql-server/8.0/docker-entrypoint.sh
@@ -27,7 +29,7 @@ services:
     environment:
       DJANGO_SETTINGS_MODULE: flashcards.settings.devstack
     ports:
-      - "8491:8491" # TODO: change this to your port
+      - "8491:8491"
     networks:
       - devstack_default
     stdin_open: true

@@ -1,7 +1,8 @@
 # Core requirements for using this application
 -c constraints.txt
 
-Django         # Web application framework
+anki                    # library/application for flashcards with spaced repetition
+Django                  # Web application framework
 django-cors-headers
 django-extensions
 django-rest-swagger
@@ -13,5 +14,5 @@ edx-django-release-util
 edx-drf-extensions
 edx-rest-api-client
 mysqlclient
-openai
+openai                  # OpenAI library used to generate flash card candidates from course content
 pytz
