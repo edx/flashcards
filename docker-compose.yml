@@ -1,0 +1,41 @@
+version: "2.1"
+services:
+  db:
+    image: mysql:8.0
+    container_name: flashcards.db
+    environment:
+      # See how these environment variables being used at https://github.com/mysql/mysql-docker/blob/mysql-server/8.0/docker-entrypoint.sh
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    networks:
+      - devstack_default
+    volumes:
+      - flashcards_mysql:/var/lib/mysql
+
+  memcache:
+    image: memcached:1.4.24
+    container_name: flashcards.memcache
+
+  app:
+    # Uncomment this line to use the official flashcards base image
+    image: openedx/flashcards
+
+    container_name: flashcards.app
+    volumes:
+      - .:/edx/app/flashcards/
+    command: bash -c 'while true; do python /edx/app/flashcards/manage.py runserver 0.0.0.0:8491; sleep 2; done'
+    environment:
+      DJANGO_SETTINGS_MODULE: flashcards.settings.devstack
+    ports:
+      - "8491:8491" # TODO: change this to your port
+    networks:
+      - devstack_default
+    stdin_open: true
+    tty: true
+
+networks:
+  devstack_default:
+    external: true
+
+volumes:
+  flashcards_mysql:
