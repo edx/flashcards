@@ -6,7 +6,7 @@ based on course content
 """
 
 import openai
-from flashcards.settings.private import OPENAI_API_KEY
+from flashcards.settings.private import OPENAI_API_KEY  # pylint: disable=import-error,no-name-in-module
 
 openai.api_key = OPENAI_API_KEY
 
