@@ -3,7 +3,7 @@ Implementation of AnkiConnect, which works super well :)
 """
 import json
 import urllib.request
-from flashcards.apps.api.v1.openai import get_csv_from_openai  # pylint: disable=import-error,no-name-in-module
+from flashcards.apps.cards.openai import get_csv_from_openai
 
 def request(action, **params):
     """

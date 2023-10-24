@@ -10,7 +10,12 @@ from flashcards.settings.private import OPENAI_API_KEY  # pylint: disable=import
 
 openai.api_key = OPENAI_API_KEY
 
+
 def get_csv_from_openai():
+    """
+    Get content from openai
+    """
+
     content_prompt = """
     The content for this course is the following
 
@@ -194,9 +199,9 @@ def get_csv_from_openai():
 
     messages = [
         {"role": "system",
-        "content": anki_prompt},
+         "content": anki_prompt},
         {"role": "system",
-        "content": content_prompt + course_content},
+         "content": content_prompt + course_content},
     ]
 
     if openai.api_key:
@@ -205,13 +210,6 @@ def get_csv_from_openai():
             messages=messages,
             temperature=1.0,
         )
-        # print(c3['choices'][0]['message']['content'])
         return c3['choices'][0]['message']['content']
 
-        # c4 = openai.ChatCompletion.create(
-        #     model="gpt-4",
-        #     messages=messages,
-        #     temperature=1.0,
-        # )
-
-        # print(c4)
+    return None
