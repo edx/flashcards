@@ -3,7 +3,7 @@ Implementation of AnkiConnect, which works super well :)
 """
 import json
 import urllib.request
-
+from utils import get_csv_from_openai
 
 def request(action, **params):
     """
@@ -29,18 +29,17 @@ def invoke(action, **params):
     return response['result']
 
 
-def create_anki_cards():
+def create_anki_cards(openai_data):
     result = invoke('deckNames')
     print('got list of decks: {}'.format(result))
 
-    csv = """What is food fermentation?,A biochemical process using microorganisms to produce diverse foods
-    What are some examples of popular fermented foods?,Beer, yogurt, pickles
-    What foods can you create with microbial environments?,Mead, sourdough, tempeh, and more
-    What is the purpose of this course?,To explore the role of microbes in food fermentation
-    What will you study in this course?,Different types of fermentations"""
+    # csv = """What is food fermentation?,A biochemical process using microorganisms to produce diverse foods
+    # What are some examples of popular fermented foods?,Beer, yogurt, pickles
+    # What foods can you create with microbial environments?,Mead, sourdough, tempeh, and more
+    # What is the purpose of this course?,To explore the role of microbes in food fermentation
+    # What will you study in this course?,Different types of fermentations"""
 
-    rows = csv.split('\n')
-    cards = {}
+    rows = openai_data.split('\n')
     for row in rows:
         question, answer = row.split(',', 1)
         note = {
@@ -54,7 +53,16 @@ def create_anki_cards():
                 #     "yomichan"
                 # ],
             }
+        print('\nAdding card:', note)
         invoke('addNote', note=note)
+
+def main():
+    result = get_csv_from_openai()
+    # TODO: Insert some kind of data validation here to make sure openai sent back something nice
+
+    result = result.replace('\t','')
+    # print(result)
+    create_anki_cards(result)
 
 main()
 # invoke('createDeck', deck='test1')

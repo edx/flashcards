@@ -6,9 +6,9 @@ based on course content
 """
 
 import openai
-from django.conf import settings
+from settings.private import OPENAI_API_KEY
 
-openai.api_key = settings.OPENAI_API_KEY
+openai.api_key = OPENAI_API_KEY
 
 def get_csv_from_openai():
     content_prompt = """
@@ -205,7 +205,8 @@ def get_csv_from_openai():
             messages=messages,
             temperature=1.0,
         )
-        print(c3['choices'][0]['message']['content'])
+        # print(c3['choices'][0]['message']['content'])
+        return c3['choices'][0]['message']['content']
 
         # c4 = openai.ChatCompletion.create(
         #     model="gpt-4",
