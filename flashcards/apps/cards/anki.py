@@ -5,6 +5,7 @@ import json
 import urllib.request
 from flashcards.apps.cards.openai import get_csv_from_openai
 
+
 def request(action, **params):
     """
     Helper function to make requests to Anki
@@ -37,17 +38,18 @@ def create_anki_cards(openai_data):
     for row in rows:
         question, answer = row.split(',', 1)
         note = {
-                "deckName": "test1",
-                "modelName": "Basic",
-                "fields": {
-                    "Front": question,
-                    "Back": answer,
-                },
-                # "tags": [ # leaving this out for now, not needed for mvp
-                #     "yomichan"
-                # ],
-            }
+            "deckName": "test1",
+            "modelName": "Basic",
+            "fields": {
+                "Front": question,
+                "Back": answer,
+            },
+            # "tags": [ # leaving this out for now, not needed for mvp
+            #     "yomichan"
+            # ],
+        }
         invoke('addNote', note=note)
+
 
 def main():
     """
@@ -55,11 +57,11 @@ def main():
     """
     result = get_csv_from_openai()
     # TODO: Insert some kind of data validation here to make sure openai sent back something nice
-    result = result.replace('\t','')
+    result = result.replace('\t', '')
     create_anki_cards(result)
 
-main()
 
+main()
 
 
 # Below is some code using just the plain ol' anki package, which has failed to work on my machine so far.
