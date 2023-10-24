@@ -6,7 +6,7 @@ based on course content
 """
 
 import openai
-from settings.private import OPENAI_API_KEY
+from flashcards.settings.private import OPENAI_API_KEY
 
 openai.api_key = OPENAI_API_KEY
 

@@ -3,7 +3,7 @@ Implementation of AnkiConnect, which works super well :)
 """
 import json
 import urllib.request
-from utils import get_csv_from_openai
+from flashcards.utils import get_csv_from_openai
 
 def request(action, **params):
     """
