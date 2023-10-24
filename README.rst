@@ -30,23 +30,26 @@ The service leverages the Anki project for flashcard management and display.
 Getting Started
 ***************
 
-Running
-=======
+Running The Application using Docker
+====================================
 
 Build the docker image:
-make docker_build
+`make docker_build`
 
 Spin up the containers:
-make dev.up
+`make dev.up`
 
 Enter the shell:
-make app-shell
-python manage.py shell
+`make app-shell`
+`python manage.py shell`
 
+This part is still in progress.
 Test it:
-from flashcards.apps.cards.cardgen import block_content_for_cards
-block_content_for_cards('course-v1:edX+DemoX+Demo_Course',
-to start fetching content locally
+`from flashcards.apps.cards.cardgen import block_content_for_cards`
+`block_content_for_cards('course-v1:edX+DemoX+Demo_Course',`
+
+Start fetching content locally
+==============================
 checkout https://github.com/edx/ai-aside/tree/ashultz0/extractor into src
 provision a user in the devstack folder with the lms running: ./provision-ida-user.sh flashcards flashcards 3000
 run make install-local in ai-aside
