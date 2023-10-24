@@ -33,20 +33,23 @@ Getting Started
 Running The Application using Docker
 ====================================
 
-Build the docker image:
-`make docker_build`
+.. code-block::
 
-Spin up the containers:
-`make dev.up`
+  # Build the docker image:
+  make docker_build
 
-Enter the shell:
-`make app-shell`
-`python manage.py shell`
+  # Spin up the containers:
+  make dev.up
 
-This part is still in progress.
-Test it:
-`from flashcards.apps.cards.cardgen import block_content_for_cards`
-`block_content_for_cards('course-v1:edX+DemoX+Demo_Course',`
+  # Enter the shell:
+  make app-shell
+  python manage.py shell
+
+  # This part is still in progress.
+  Import function and test it:
+  from flashcards.apps.cards.cardgen import block_content_for_cards
+  block_content_for_cards('course-v1:edX+DemoX+Demo_Course',
+                            'block-v1:edX+DemoX+Demo_Course+type@sequential+block@edx_introduction/block-v1:edX+DemoX+Demo_Course+type@vertical+block@vertical_0270f6de40fc')
 
 Start fetching content locally
 ==============================
