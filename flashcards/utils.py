@@ -6,10 +6,9 @@ based on course content
 """
 
 import openai
+from django.conf import settings
 
-from flashcards.settings.private import OPENAI_API_KEY  # pylint: disable=import-error,no-name-in-module
-
-openai.api_key = OPENAI_API_KEY
+openai.api_key = settings.OPENAI_API_KEY
 
 
 content_prompt = """
@@ -181,19 +180,18 @@ messages = [
      "content": content_prompt + course_content},
 ]
 
+if openai.api_key:
+    c3 = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages,
+        temperature=1.0,
+    )
+    print(c3['choices'][0]['message']['content'])
 
-c3 = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=messages,
-    temperature=1.0,
-)
+    # c4 = openai.ChatCompletion.create(
+    #     model="gpt-4",
+    #     messages=messages,
+    #     temperature=1.0,
+    # )
 
-print(c3['choices'][0]['message']['content'])
-
-# c4 = openai.ChatCompletion.create(
-#     model="gpt-4",
-#     messages=messages,
-#     temperature=1.0,
-# )
-
-# print(c4)
+    # print(c4)
