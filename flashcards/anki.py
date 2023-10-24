@@ -29,9 +29,38 @@ def invoke(action, **params):
     return response['result']
 
 
+def create_anki_cards():
+    result = invoke('deckNames')
+    print('got list of decks: {}'.format(result))
+
+    csv = """What is food fermentation?,A biochemical process using microorganisms to produce diverse foods
+    What are some examples of popular fermented foods?,Beer, yogurt, pickles
+    What foods can you create with microbial environments?,Mead, sourdough, tempeh, and more
+    What is the purpose of this course?,To explore the role of microbes in food fermentation
+    What will you study in this course?,Different types of fermentations"""
+
+    rows = csv.split('\n')
+    cards = {}
+    for row in rows:
+        question, answer = row.split(',', 1)
+        note = {
+                "deckName": "test1",
+                "modelName": "Basic",
+                "fields": {
+                    "Front": question,
+                    "Back": answer,
+                },
+                # "tags": [ # leaving this out for now, not needed for mvp
+                #     "yomichan"
+                # ],
+            }
+        invoke('addNote', note=note)
+
+main()
 # invoke('createDeck', deck='test1')
-result = invoke('deckNames')
-print('got list of decks: {}'.format(result))
+
+
+
 
 
 # Below is some code using just the plain ol' anki package, which failed to work on my machine.
