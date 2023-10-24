@@ -244,3 +244,6 @@ LOGGING = get_logger_config(debug=DEBUG)
 
 # OpenAI API key, to be specified in the private settings file
 OPENAI_API_KEY = ''
+
+CMS_ROOT_URL = None
+LMS_ROOT_URL = None

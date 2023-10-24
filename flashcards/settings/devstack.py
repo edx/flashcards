@@ -58,3 +58,8 @@ JWT_AUTH.update({
         'SECRET_KEY': 'lms-secret',
     }],
 })
+
+CMS_ROOT_URL = 'http://edx.devstack.cms:18010'
+LMS_ROOT_URL = 'http://edx.devstack.lms:18000'
+BACKEND_SERVICE_EDX_OAUTH2_KEY = 'flashcards-backend-service-key'
+BACKEND_SERVICE_EDX_OAUTH2_SECRET = 'flashcards-backend-service-secret'

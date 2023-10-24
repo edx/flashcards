@@ -70,3 +70,8 @@ LOGGING = get_logger_config(debug=DEBUG)
 # Lastly, see if the developer has any local overrides.
 if os.path.isfile(join(dirname(abspath(__file__)), 'private.py')):
     from .private import *  # pylint: disable=import-error,wildcard-import
+
+CMS_ROOT_URL = 'http://localhost:18010'
+LMS_ROOT_URL = 'http://localhost:18000'
+BACKEND_SERVICE_EDX_OAUTH2_KEY = 'flashcards-backend-service-key'
+BACKEND_SERVICE_EDX_OAUTH2_SECRET = 'flashcards-backend-service-secret'
