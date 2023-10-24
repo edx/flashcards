@@ -39,6 +39,14 @@ sys.path.append(REPO_ROOT)
 
 VERSION = get_version('../flashcards', '__init__.py')
 
+# Specify settings module (which will be picked up from the sandbox)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'flashcards.settings.test')
+
+import django
+
+
+django.setup()
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.

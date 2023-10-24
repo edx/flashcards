@@ -1,12 +1,14 @@
 """
-Integration with openai to generate 'flashcards' in csv form
+OpenAI integration utilities.
+
+Integration with OpenAI to generate 'flashcards' in csv form
 based on course content
 """
 
 import openai
-from flashcards.settings.private import OPENAI_API_KEY # pylint: disable=import-error,no-name-in-module
+from django.conf import settings
 
-openai.api_key = OPENAI_API_KEY
+openai.api_key = settings.OPENAI_API_KEY
 
 
 content_prompt = """
@@ -25,7 +27,7 @@ Lesson 4: Wine and Vinegar
 Lesson 5: Filamentous Fungi
 Lesson 6: Aged Meat and Cheese
 Lesson 7: Chocolate and Coffee
-"""
+"""  # noqa
 
 course_content = """
 ROBERTO KOLTER: While humans have been preparing and consuming
@@ -169,7 +171,7 @@ What is the volume content of salt in the Dead Sea?,30%
 Why can the Dead Sea keep swimmers afloat?,Due to high salt content
 Why is the Dead Sea called Dead?,Because only simple organisms can live in it
 Why only simple organisms can live in the Dead Sea?,Because of high salt content
-"""
+"""  # noqa
 
 messages = [
     {"role": "system",
@@ -178,19 +180,18 @@ messages = [
      "content": content_prompt + course_content},
 ]
 
+if openai.api_key:
+    c3 = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages,
+        temperature=1.0,
+    )
+    print(c3['choices'][0]['message']['content'])
 
-c3 = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=messages,
-    temperature=1.0,
-)
+    # c4 = openai.ChatCompletion.create(
+    #     model="gpt-4",
+    #     messages=messages,
+    #     temperature=1.0,
+    # )
 
-print(c3['choices'][0]['message']['content'])
-
-# c4 = openai.ChatCompletion.create(
-#     model="gpt-4",
-#     messages=messages,
-#     temperature=1.0,
-# )
-
-# print(c4)
+    # print(c4)

@@ -44,7 +44,7 @@ dev_requirements: clean_tox piptools ## sync to requirements for local developme
 validation_requirements: piptools ## sync to requirements for testing & code quality checking
 	pip-sync -q requirements/validation.txt
 
-doc_requirements: piptools
+doc_requirements: piptools ## install requirements for documentation builds
 	pip-sync -q requirements/doc.txt
 
 production-requirements: piptools ## install requirements for production
@@ -59,8 +59,7 @@ shell: ## run Django shell
 test: clean ## run tests and generate coverage report
 	pytest
 
-# To be run from CI context
-coverage: clean
+coverage: clean ## To be run from CI context
 	pytest --cov-report html
 	$(BROWSER)htmlcov/index.html
 
@@ -76,7 +75,7 @@ style: ## run Python style checker
 lint: ## run Python code linting
 	pylint --rcfile=pylintrc flashcards *.py
 
-quality:
+quality: ## run all quality checks
 	tox -e quality 
 
 pii_check: ## check for PII annotations on all Django models
@@ -97,8 +96,17 @@ html_coverage: ## generate and view HTML coverage report
 # Define PIP_COMPILE_OPTS=-v to get more information during make upgrade.
 PIP_COMPILE = pip-compile --upgrade $(PIP_COMPILE_OPTS)
 
+COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
+.PHONY: $(COMMON_CONSTRAINTS_TXT)
+$(COMMON_CONSTRAINTS_TXT):
+	wget -O "$(@)" https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt || touch "$(@)"
+	echo "$(COMMON_CONSTRAINTS_TEMP_COMMENT)" | cat - $(@) > temp && mv temp $(@)
+
+
 upgrade: export CUSTOM_COMPILE_COMMAND=make upgrade
-upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
+upgrade: $(COMMON_CONSTRAINTS_TXT) ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
+	sed 's/Django<4.0//g' requirements/common_constraints.txt > requirements/common_constraints.tmp
+	mv requirements/common_constraints.tmp requirements/common_constraints.txt
 	pip install -qr requirements/pip-tools.txt
 	# Make sure to compile files after any other files they include!
 	$(PIP_COMPILE) --allow-unsafe -o requirements/pip.txt requirements/pip.in
@@ -125,7 +133,7 @@ extract_translations: ## extract strings to be translated, outputting .mo files
 dummy_translations: ## generate dummy translation (.po) files
 	cd flashcards && i18n_tool dummy
 
-compile_translations: # compile translation files, outputting .po files for each supported language
+compile_translations: ## compile translation files, outputting .po files for each supported language
 	python manage.py compilemessages
 
 fake_translations: extract_translations dummy_translations compile_translations ## generate and compile dummy translation files
@@ -143,7 +151,7 @@ open-devstack: ## open a shell on the server started by start-devstack
 	docker exec -it flashcards /edx/app/flashcards/devstack.sh open
 
 pkg-devstack: ## build the flashcards image from the latest configuration and code
-	docker build -t flashcards:latest -f docker/build/flashcards/Dockerfile git://github.com/openedx/configuration
+	docker build -t flashcards:latest -f docker/build/flashcards/Dockerfile
 
 detect_changed_source_translations: ## check if translation files are up-to-date
 	cd flashcards && i18n_tool changed
@@ -154,28 +162,28 @@ docker_build:
 	docker build . -f Dockerfile -t openedx/flashcards
 
 # devstack-themed shortcuts
-dev.up: # Starts all containers
+dev.up: ## Starts all containers
 	docker-compose up -d
 
 dev.up.build:
 	docker-compose up -d --build
 
-dev.down: # Kills containers and all of their data that isn't in volumes
+dev.down: ## Kills containers and all of their data that isn't in volumes
 	docker-compose down
 
-dev.stop: # Stops containers so they can be restarted
+dev.stop: ## Stops containers so they can be restarted
 	docker-compose stop
 
-app-shell: # Run the app shell as root
+app-shell: ## Run the app shell as root
 	docker exec -u 0 -it flashcards.app bash
 
-db-shell: # Run the app shell as root, enter the app's database
+db-shell: ## Run the app shell as root, enter the app's database
 	docker exec -u 0 -it flashcards.db mysql -u root flashcards
 
-%-logs: # View the logs of the specified service container
+%-logs: ## View the logs of the specified service container
 	docker-compose logs -f --tail=500 $*
 
-%-restart: # Restart the specified service container
+%-restart: ## Restart the specified service container
 	docker-compose restart $*
 
 %-attach:

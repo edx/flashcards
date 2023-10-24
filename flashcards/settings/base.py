@@ -241,3 +241,6 @@ PLATFORM_NAME = 'Your Platform Name Here'
 
 # Set up logging for development use (logging to stdout)
 LOGGING = get_logger_config(debug=DEBUG)
+
+# OpenAI API key, to be specified in the private settings file
+OPENAI_API_KEY = ''
