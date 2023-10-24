@@ -1,10 +1,13 @@
 """
-Integration with openai to generate 'flashcards' in csv form
+OpenAI integration utilities.
+
+Integration with OpenAI to generate 'flashcards' in csv form
 based on course content
 """
 
 import openai
-from flashcards.settings.private import OPENAI_API_KEY # pylint: disable=import-error,no-name-in-module
+
+from flashcards.settings.private import OPENAI_API_KEY  # pylint: disable=import-error,no-name-in-module
 
 openai.api_key = OPENAI_API_KEY
 
@@ -25,7 +28,7 @@ Lesson 4: Wine and Vinegar
 Lesson 5: Filamentous Fungi
 Lesson 6: Aged Meat and Cheese
 Lesson 7: Chocolate and Coffee
-"""
+"""  # noqa
 
 course_content = """
 ROBERTO KOLTER: While humans have been preparing and consuming
@@ -169,7 +172,7 @@ What is the volume content of salt in the Dead Sea?,30%
 Why can the Dead Sea keep swimmers afloat?,Due to high salt content
 Why is the Dead Sea called Dead?,Because only simple organisms can live in it
 Why only simple organisms can live in the Dead Sea?,Because of high salt content
-"""
+"""  # noqa
 
 messages = [
     {"role": "system",

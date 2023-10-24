@@ -1,10 +1,11 @@
 """ Tests for core models. """
 
 from django.test import TestCase
+
 # from django_dynamic_fixture import G
 # from social_django.models import UserSocialAuth
 
-from flashcards.apps.core.models import User
+# from flashcards.apps.core.models import User
 
 
 class UserTests(TestCase):
