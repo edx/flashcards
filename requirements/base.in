@@ -13,6 +13,7 @@ edx-django-utils
 edx-django-release-util
 edx-drf-extensions
 edx-rest-api-client
+genanki                 # used to generate Anki flash card deck files conveniently
 mysqlclient
 openai                  # OpenAI library used to generate flash card candidates from course content
 pytz

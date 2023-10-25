@@ -39,6 +39,10 @@ build==1.0.3
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
+cached-property==1.5.2
+    # via
+    #   -r requirements/validation.txt
+    #   genanki
 certifi==2023.7.22
     # via
     #   -r requirements/validation.txt
@@ -55,6 +59,10 @@ charset-normalizer==3.3.1
     #   -r requirements/validation.txt
     #   aiohttp
     #   requests
+chevron==0.14.0
+    # via
+    #   -r requirements/validation.txt
+    #   genanki
 click==8.1.7
     # via
     #   -r requirements/pip-tools.txt
@@ -63,7 +71,6 @@ click==8.1.7
     #   code-annotations
     #   edx-django-utils
     #   edx-lint
-    #   flask
     #   pip-tools
 click-log==0.4.0
     # via
@@ -87,7 +94,7 @@ coverage[toml]==7.3.2
     #   -r requirements/validation.txt
     #   coverage
     #   pytest-cov
-cryptography==41.0.4
+cryptography==41.0.5
     # via
     #   -r requirements/validation.txt
     #   pyjwt
@@ -195,20 +202,17 @@ filelock==3.12.4
     #   -r requirements/validation.txt
     #   tox
     #   virtualenv
-flask==3.0.0
+frozendict==2.3.8
     # via
     #   -r requirements/validation.txt
-    #   aqt
-    #   flask-cors
-flask-cors==4.0.0
-    # via
-    #   -r requirements/validation.txt
-    #   aqt
+    #   genanki
 frozenlist==1.4.0
     # via
     #   -r requirements/validation.txt
     #   aiohttp
     #   aiosignal
+genanki==0.13.0
+    # via -r requirements/validation.txt
 idna==3.4
     # via
     #   -r requirements/validation.txt
@@ -219,7 +223,6 @@ importlib-metadata==6.8.0
     #   -r requirements/pip-tools.txt
     #   -r requirements/validation.txt
     #   build
-    #   flask
     #   keyring
     #   markdown
     #   twine
@@ -231,10 +234,6 @@ isort==5.12.0
     # via
     #   -r requirements/validation.txt
     #   pylint
-itsdangerous==2.1.2
-    # via
-    #   -r requirements/validation.txt
-    #   flask
 itypes==1.2.0
     # via
     #   -r requirements/validation.txt
@@ -254,15 +253,6 @@ jinja2==3.1.2
     #   code-annotations
     #   coreschema
     #   diff-cover
-    #   flask
-jsonschema==4.19.1
-    # via
-    #   -r requirements/validation.txt
-    #   aqt
-jsonschema-specifications==2023.7.1
-    # via
-    #   -r requirements/validation.txt
-    #   jsonschema
 keyring==24.2.0
     # via
     #   -r requirements/validation.txt
@@ -281,7 +271,6 @@ markupsafe==2.1.3
     # via
     #   -r requirements/validation.txt
     #   jinja2
-    #   werkzeug
 mccabe==0.7.0
     # via
     #   -r requirements/validation.txt
@@ -427,7 +416,7 @@ pysocks==1.7.1
     # via
     #   -r requirements/validation.txt
     #   requests
-pytest==7.4.2
+pytest==7.4.3
     # via
     #   -r requirements/validation.txt
     #   pytest-cov
@@ -454,6 +443,7 @@ pyyaml==6.0.1
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
+    #   genanki
 readme-renderer==42.0
     # via
     #   -r requirements/validation.txt
@@ -496,10 +486,6 @@ semantic-version==2.10.0
     # via
     #   -r requirements/validation.txt
     #   edx-drf-extensions
-send2trash==1.8.2
-    # via
-    #   -r requirements/validation.txt
-    #   aqt
 simplejson==3.19.2
     # via
     #   -r requirements/validation.txt
@@ -590,14 +576,6 @@ virtualenv==20.24.6
     # via
     #   -r requirements/validation.txt
     #   tox
-waitress==2.1.2
-    # via
-    #   -r requirements/validation.txt
-    #   aqt
-werkzeug==3.0.0
-    # via
-    #   -r requirements/validation.txt
-    #   flask
 wheel==0.41.2
     # via
     #   -r requirements/pip-tools.txt
