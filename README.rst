@@ -47,9 +47,9 @@ Running The Application using Docker
 
   # This part is still in progress.
   Import function and test it:
-  from flashcards.apps.cards.cardgen import block_content_for_cards
+  from flashcards.apps.cards.anki import main
   block_content_for_cards('course-v1:edX+DemoX+Demo_Course',
-                            'block-v1:edX+DemoX+Demo_Course+type@sequential+block@edx_introduction/block-v1:edX+DemoX+Demo_Course+type@vertical+block@vertical_0270f6de40fc')
+                            'block-v1:edX+DemoX+Demo_Course+type@sequential+block@edx_introduction')
 
 Start fetching content locally
 ==============================

@@ -1,9 +1,10 @@
 """
-Implementation of AnkiConnect, which works super well :)
+Implementation of AnkiConnect to create cards
 """
+from flashcards.apps.cards.cardgen import cards_from_block_id
 import json
 import urllib.request
-from flashcards.apps.cards.openai import get_csv_from_openai
+import requests
 
 
 def request(action, **params):
@@ -18,7 +19,8 @@ def invoke(action, **params):
     Makes a request to Anki to interact with cards and decks.
     """
     requestJson = json.dumps(request(action, **params)).encode('utf-8')
-    response = json.load(urllib.request.urlopen(urllib.request.Request('http://localhost:8765', requestJson)))
+    # response = json.load(urllib.request.urlopen(urllib.request.Request('http://localhost:8765', requestJson)))
+    response = requests.post('http://localhost:8765', data=requestJson)
     if len(response) != 2:
         raise Exception('response has an unexpected number of fields')
     if 'error' not in response:
@@ -37,6 +39,7 @@ def create_anki_cards(openai_data):
     rows = openai_data.split('\n')
     for row in rows:
         question, answer = row.split(',', 1)
+        print(question,'\\n',answer)
         note = {
             "deckName": "test1",
             "modelName": "Basic",
@@ -55,7 +58,10 @@ def main():
     """
     Master function that gets a response from openai and passes the result to Anki
     """
-    result = get_csv_from_openai()
+    # 'block-v1:edX+DemoX+Demo_Course+type@sequential+block@19a30717eff543078a5d94ae9d6c18a5/'
+    # 'block-v1:edX+DemoX+Demo_Course+type@vertical+block@867dddb6f55d410caaa9c1eb9c6743ec'
+    result = cards_from_block_id('course-v1:edX+DemoX+Demo_Course',
+                                 'block-v1:edX+DemoX+Demo_Course+type@vertical+block@867dddb6f55d410caaa9c1eb9c6743ec')
     # TODO: Insert some kind of data validation here to make sure openai sent back something nice
     result = result.replace('\t', '')
     create_anki_cards(result)

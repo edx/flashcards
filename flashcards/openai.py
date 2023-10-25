@@ -5,8 +5,8 @@ Integration with OpenAI to generate 'flashcards' in csv form
 based on course content
 """
 
+from settings.private import OPENAI_API_KEY  # pylint: disable=import-error,no-name-in-module #flashcards.
 import openai
-from flashcards.settings.private import OPENAI_API_KEY  # pylint: disable=import-error,no-name-in-module
 
 openai.api_key = OPENAI_API_KEY
 
