@@ -7,8 +7,6 @@ from flashcards.settings.private import OPENAI_API_KEY  # pylint: disable=import
 
 openai.api_key = OPENAI_API_KEY
 
-# provision a user in devstack provision-ida-user.sh flashcards flashcards 3000
-
 
 def get_client(oauth_base_url=settings.LMS_ROOT_URL):
     """

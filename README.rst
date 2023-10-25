@@ -45,11 +45,8 @@ Running The Application using Docker
   make app-shell
   python manage.py shell
 
-  # This part is still in progress.
-  Import function and test it:
+  # Import function and test it:
   from flashcards.apps.cards.anki import main
-  block_content_for_cards('course-v1:edX+DemoX+Demo_Course',
-                            'block-v1:edX+DemoX+Demo_Course+type@sequential+block@edx_introduction')
 
 Start fetching content locally
 ==============================
