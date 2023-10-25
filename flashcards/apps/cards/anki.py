@@ -41,15 +41,8 @@ def create_anki_cards(openai_data):
     genanki.Package(my_deck).write_to_file('demo_output.apkg')
 
 
-def main():
-    """
-    Master function that gets a response from openai and passes the result to Anki
-    """
-    result = cards_from_block_id('course-v1:edX+DemoX+Demo_Course',
-                                 'block-v1:edX+DemoX+Demo_Course+type@vertical+block@867dddb6f55d410caaa9c1eb9c6743ec')
-    # TODO: Insert some kind of data validation here to make sure openai sent back something nice
-    result = result.replace('\t', '')
+def anki_from_block_id(course_id, block_id):
+    csv_maybe = cards_from_block_id(course_id, block_id)
+    result = csv_maybe.replace('\t', '')
     create_anki_cards(result)
 
-
-main()
