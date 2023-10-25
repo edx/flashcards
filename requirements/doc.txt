@@ -340,8 +340,10 @@ pycparser==2.21
     # via
     #   -r requirements/test.txt
     #   cffi
-pydata-sphinx-theme==0.14.2
-    # via sphinx-book-theme
+pydata-sphinx-theme==0.14.1
+    # via
+    #   -c requirements/constraints.txt
+    #   sphinx-book-theme
 pygments==2.16.1
     # via
     #   accessible-pygments

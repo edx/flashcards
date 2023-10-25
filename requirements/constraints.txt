@@ -10,3 +10,7 @@
 
 # Common constraints for edx repos
 -c common_constraints.txt
+
+# A new deprecation warning inadvertently broke all builds, waiting for a fix
+# https://github.com/pydata/pydata-sphinx-theme/issues/1539
+pydata-sphinx-theme<0.14.2

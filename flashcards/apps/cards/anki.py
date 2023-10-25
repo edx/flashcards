@@ -1,8 +1,9 @@
 """
 Implementation of AnkiConnect to create cards
 """
-from flashcards.apps.cards.cardgen import cards_from_block_id
 import genanki
+
+from flashcards.apps.cards.cardgen import cards_from_block_id
 
 
 def create_anki_cards(openai_data):
