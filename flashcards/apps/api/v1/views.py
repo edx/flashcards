@@ -9,4 +9,4 @@ from flashcards.apps.cards.anki import anki_from_block_id
 @require_http_methods(['GET'])
 def cards(request, course_id, block_id):
     cards = anki_from_block_id(course_id, block_id)
-    return Response("cards")
+    return Response(cards)
