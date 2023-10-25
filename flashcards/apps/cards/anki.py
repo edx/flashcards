@@ -47,4 +47,3 @@ def anki_from_block_id(course_id, block_id):
     result = csv_maybe.replace('\t', '')
     create_anki_cards(result)
     return csv_maybe  # return the CSV text so we can see it in testing
-
