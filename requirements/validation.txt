@@ -69,6 +69,7 @@ click==8.1.7
     #   code-annotations
     #   edx-django-utils
     #   edx-lint
+    #   flask
 click-log==0.4.0
     # via
     #   -r requirements/quality.txt
@@ -229,6 +230,17 @@ filelock==3.12.4
     #   -r requirements/test.txt
     #   tox
     #   virtualenv
+flask==3.0.0
+    # via
+    #   -r requirements/quality.txt
+    #   -r requirements/test.txt
+    #   aqt
+    #   flask-cors
+flask-cors==4.0.0
+    # via
+    #   -r requirements/quality.txt
+    #   -r requirements/test.txt
+    #   aqt
 frozenlist==1.4.0
     # via
     #   -r requirements/quality.txt
@@ -258,6 +270,11 @@ isort==5.12.0
     #   -r requirements/quality.txt
     #   -r requirements/test.txt
     #   pylint
+itsdangerous==2.1.2
+    # via
+    #   -r requirements/quality.txt
+    #   -r requirements/test.txt
+    #   flask
 itypes==1.2.0
     # via
     #   -r requirements/quality.txt
@@ -278,6 +295,17 @@ jinja2==3.1.2
     #   -r requirements/test.txt
     #   code-annotations
     #   coreschema
+    #   flask
+jsonschema==4.19.1
+    # via
+    #   -r requirements/quality.txt
+    #   -r requirements/test.txt
+    #   aqt
+jsonschema-specifications==2023.7.1
+    # via
+    #   -r requirements/quality.txt
+    #   -r requirements/test.txt
+    #   jsonschema
 keyring==24.2.0
     # via
     #   -r requirements/quality.txt
@@ -296,6 +324,7 @@ markupsafe==2.1.3
     #   -r requirements/quality.txt
     #   -r requirements/test.txt
     #   jinja2
+    #   werkzeug
 mccabe==0.7.0
     # via
     #   -r requirements/quality.txt
@@ -533,6 +562,11 @@ semantic-version==2.10.0
     #   -r requirements/quality.txt
     #   -r requirements/test.txt
     #   edx-drf-extensions
+send2trash==1.8.2
+    # via
+    #   -r requirements/quality.txt
+    #   -r requirements/test.txt
+    #   aqt
 simplejson==3.19.2
     # via
     #   -r requirements/quality.txt
@@ -636,6 +670,16 @@ virtualenv==20.24.6
     #   -r requirements/quality.txt
     #   -r requirements/test.txt
     #   tox
+waitress==2.1.2
+    # via
+    #   -r requirements/quality.txt
+    #   -r requirements/test.txt
+    #   aqt
+werkzeug==3.0.0
+    # via
+    #   -r requirements/quality.txt
+    #   -r requirements/test.txt
+    #   flask
 yarl==1.9.2
     # via
     #   -r requirements/quality.txt

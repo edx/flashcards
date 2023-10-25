@@ -30,6 +30,33 @@ The service leverages the Anki project for flashcard management and display.
 Getting Started
 ***************
 
+Running The Application using Docker
+====================================
+
+.. code-block::
+
+  # Build the docker image:
+  make docker_build
+
+  # Spin up the containers:
+  make dev.up
+
+  # Enter the shell:
+  make app-shell
+  python manage.py shell
+
+  # Import function and test it:
+  from flashcards.apps.cards.anki import main
+
+Start fetching content locally
+==============================
+checkout https://github.com/edx/ai-aside/tree/ashultz0/extractor into src
+provision a user in the devstack folder with the lms running: ./provision-ida-user.sh flashcards flashcards 3000
+run make install-local in ai-aside
+restart lms so that the aside actually loads
+You must create an XBlockAsidesConfig (admin URL: /admin/lms_xblock/xblockasidesconfig/). This model has a list of blocks you do not want asides to apply to that can be left alone, and an enabled setting that unsurprisingly should be True.
+
+
 Developing
 ==========
 
