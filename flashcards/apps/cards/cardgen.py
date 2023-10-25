@@ -3,9 +3,8 @@ from django.conf import settings
 from edx_rest_api_client import client as rest_client
 
 from flashcards.apps.cards.prompt import anki_prompt
-from flashcards.settings.private import OPENAI_API_KEY  # pylint: disable=import-error,no-name-in-module
 
-openai.api_key = OPENAI_API_KEY
+openai.api_key = settings.OPENAI_API_KEY
 
 
 def get_client(oauth_base_url=settings.LMS_ROOT_URL):
