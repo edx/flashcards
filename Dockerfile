@@ -91,11 +91,11 @@ USER root
 ENV DJANGO_SETTINGS_MODULE flashcards.settings.devstack
 
 # Install watchman
-RUN wget https://github.com/facebook/watchman/releases/download/v2023.10.23.00/watchman-v2023.10.23.00-linux.zip
-RUN unzip watchman-v2023.10.23.00-linux.zip
+RUN wget https://github.com/facebook/watchman/releases/download/v2023.11.20.00/watchman-v2023.11.20.00-linux.zip
+RUN unzip watchman-v2023.11.20.00-linux.zip
 RUN mkdir -p /usr/local/{bin,lib} /usr/local/var/run/watchman
-RUN cp watchman-v2023.10.23.00-linux/bin/* /usr/local/bin
-RUN cp watchman-v2023.10.23.00-linux/lib/* /usr/local/lib
+RUN cp watchman-v2023.11.20.00-linux/bin/* /usr/local/bin
+RUN cp watchman-v2023.11.20.00-linux/lib/* /usr/local/lib
 RUN chmod 755 /usr/local/bin/watchman
 RUN chmod 2777 /usr/local/var/run/watchman
 
