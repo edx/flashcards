@@ -94,7 +94,7 @@ html_coverage: ## generate and view HTML coverage report
 	coverage html && open htmlcov/index.html
 
 # Define PIP_COMPILE_OPTS=-v to get more information during make upgrade.
-PIP_COMPILE = pip-compile --upgrade $(PIP_COMPILE_OPTS)
+PIP_COMPILE = pip-compile --upgrade --allow-unsafe $(PIP_COMPILE_OPTS)
 
 COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
 .PHONY: $(COMMON_CONSTRAINTS_TXT)
@@ -109,7 +109,7 @@ upgrade: $(COMMON_CONSTRAINTS_TXT) ## update the requirements/*.txt files with t
 	mv requirements/common_constraints.tmp requirements/common_constraints.txt
 	pip install -qr requirements/pip-tools.txt
 	# Make sure to compile files after any other files they include!
-	$(PIP_COMPILE) --allow-unsafe -o requirements/pip.txt requirements/pip.in
+	$(PIP_COMPILE) -o requirements/pip.txt requirements/pip.in
 	$(PIP_COMPILE) -o requirements/pip-tools.txt requirements/pip-tools.in
 	pip install -qr requirements/pip.txt
 	pip install -qr requirements/pip-tools.txt

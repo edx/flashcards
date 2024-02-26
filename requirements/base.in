@@ -17,3 +17,4 @@ genanki                 # used to generate Anki flash card deck files convenient
 mysqlclient
 openai                  # OpenAI library used to generate flash card candidates from course content
 pytz
+setuptools
