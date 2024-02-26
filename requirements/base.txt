@@ -52,9 +52,7 @@ defusedxml==0.8.0rc2
     #   python3-openid
     #   social-auth-core
 distro==1.9.0
-    # via
-    #   anki
-    #   openai
+    # via openai
 django==4.2.10
     # via
     #   -r requirements/base.in
@@ -237,3 +235,7 @@ urllib3==2.2.1
     # via requests
 zipp==3.17.0
     # via importlib-metadata
+
+# The following packages are considered to be unsafe in a requirements file:
+setuptools==69.1.1
+    # via -r requirements/base.in
