@@ -29,7 +29,7 @@ beautifulsoup4==4.12.3
     # via
     #   -r requirements/validation.txt
     #   anki
-build==1.0.3
+build==1.1.1
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -37,7 +37,7 @@ cached-property==1.5.2
     # via
     #   -r requirements/validation.txt
     #   genanki
-cachetools==5.3.2
+cachetools==5.3.3
     # via
     #   -r requirements/validation.txt
     #   tox
@@ -103,6 +103,7 @@ cryptography==42.0.5
     # via
     #   -r requirements/validation.txt
     #   pyjwt
+    #   secretstorage
     #   social-auth-core
 decorator==5.1.1
     # via
@@ -126,8 +127,9 @@ distlib==0.3.8
 distro==1.9.0
     # via
     #   -r requirements/validation.txt
+    #   anki
     #   openai
-django==4.2.10
+django==4.2.11
     # via
     #   -r requirements/validation.txt
     #   django-cors-headers
@@ -180,7 +182,7 @@ edx-auth-backends==4.2.0
     # via -r requirements/validation.txt
 edx-django-release-util==1.3.0
     # via -r requirements/validation.txt
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via
     #   -r requirements/validation.txt
     #   edx-drf-extensions
@@ -231,7 +233,7 @@ idna==3.6
     #   anyio
     #   httpx
     #   requests
-importlib-metadata==7.0.1
+importlib-metadata==7.0.2
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/validation.txt
@@ -255,13 +257,18 @@ jaraco-classes==3.3.1
     # via
     #   -r requirements/validation.txt
     #   keyring
+jeepney==0.8.0
+    # via
+    #   -r requirements/validation.txt
+    #   keyring
+    #   secretstorage
 jinja2==3.1.3
     # via
     #   -r requirements/validation.txt
     #   code-annotations
     #   coreschema
     #   diff-cover
-keyring==24.3.0
+keyring==24.3.1
     # via
     #   -r requirements/validation.txt
     #   twine
@@ -306,7 +313,7 @@ oauthlib==3.2.2
     #   -r requirements/validation.txt
     #   requests-oauthlib
     #   social-auth-core
-openai==1.12.0
+openai==1.13.3
     # via -r requirements/validation.txt
 openapi-codec==1.3.2
     # via
@@ -316,7 +323,7 @@ orjson==3.9.15
     # via
     #   -r requirements/validation.txt
     #   anki
-packaging==23.2
+packaging==24.0
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/validation.txt
@@ -330,9 +337,9 @@ pbr==6.0.0
     # via
     #   -r requirements/validation.txt
     #   stevedore
-pip-tools==7.4.0
+pip-tools==7.4.1
     # via -r requirements/pip-tools.txt
-pkginfo==1.9.6
+pkginfo==1.10.0
     # via
     #   -r requirements/validation.txt
     #   twine
@@ -364,7 +371,7 @@ pycparser==2.21
     # via
     #   -r requirements/validation.txt
     #   cffi
-pydantic==2.6.2
+pydantic==2.6.3
     # via
     #   -r requirements/validation.txt
     #   openai
@@ -429,7 +436,7 @@ pysocks==1.7.1
     # via
     #   -r requirements/validation.txt
     #   requests
-pytest==8.0.2
+pytest==8.1.1
     # via
     #   -r requirements/validation.txt
     #   pytest-cov
@@ -457,7 +464,7 @@ pyyaml==6.0.1
     #   edx-django-release-util
     #   edx-i18n-tools
     #   genanki
-readme-renderer==42.0
+readme-renderer==43.0
     # via
     #   -r requirements/validation.txt
     #   twine
@@ -473,7 +480,7 @@ requests[socks]==2.31.0
     #   slumber
     #   social-auth-core
     #   twine
-requests-oauthlib==1.3.1
+requests-oauthlib==1.4.0
     # via
     #   -r requirements/validation.txt
     #   social-auth-core
@@ -485,10 +492,14 @@ rfc3986==2.0.0
     # via
     #   -r requirements/validation.txt
     #   twine
-rich==13.7.0
+rich==13.7.1
     # via
     #   -r requirements/validation.txt
     #   twine
+secretstorage==3.3.3
+    # via
+    #   -r requirements/validation.txt
+    #   keyring
 semantic-version==2.10.0
     # via
     #   -r requirements/validation.txt
@@ -557,11 +568,11 @@ tomli==2.0.1
     #   pyproject-hooks
     #   pytest
     #   tox
-tomlkit==0.12.3
+tomlkit==0.12.4
     # via
     #   -r requirements/validation.txt
     #   pylint
-tox==4.13.0
+tox==4.14.1
     # via -r requirements/validation.txt
 tqdm==4.66.2
     # via
