@@ -52,9 +52,12 @@ defusedxml==0.8.0rc2
     #   python3-openid
     #   social-auth-core
 distro==1.9.0
-    # via openai
-django==4.2.10
     # via
+    #   anki
+    #   openai
+django==4.2.11
+    # via
+    #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
     #   django-cors-headers
     #   django-crum
@@ -80,7 +83,7 @@ django-waffle==4.1.0
     #   -r requirements/base.in
     #   edx-django-utils
     #   edx-drf-extensions
-djangorestframework==3.14.0
+djangorestframework==3.15.0
     # via
     #   -r requirements/base.in
     #   django-rest-swagger
@@ -92,7 +95,7 @@ edx-auth-backends==4.2.0
     # via -r requirements/base.in
 edx-django-release-util==1.3.0
     # via -r requirements/base.in
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -120,25 +123,27 @@ idna==3.6
     #   anyio
     #   httpx
     #   requests
-importlib-metadata==7.0.1
-    # via markdown
+importlib-metadata==6.11.0
+    # via
+    #   -c requirements/common_constraints.txt
+    #   markdown
 itypes==1.2.0
     # via coreapi
 jinja2==3.1.3
     # via coreschema
-markdown==3.5.2
+markdown==3.6
     # via anki
 markupsafe==2.1.5
     # via jinja2
 mysqlclient==2.2.4
     # via -r requirements/base.in
-newrelic==9.7.0
+newrelic==9.7.1
     # via edx-django-utils
 oauthlib==3.2.2
     # via
     #   requests-oauthlib
     #   social-auth-core
-openai==1.12.0
+openai==1.14.1
     # via -r requirements/base.in
 openapi-codec==1.3.2
     # via django-rest-swagger
@@ -146,13 +151,13 @@ orjson==3.9.15
     # via anki
 pbr==6.0.0
     # via stevedore
-protobuf==4.25.3
+protobuf==5.26.0
     # via anki
 psutil==5.9.8
     # via edx-django-utils
 pycparser==2.21
     # via cffi
-pydantic==2.6.2
+pydantic==2.6.4
     # via openai
 pydantic-core==2.16.3
     # via pydantic
@@ -172,9 +177,7 @@ pysocks==1.7.1
 python3-openid==3.2.0
     # via social-auth-core
 pytz==2024.1
-    # via
-    #   -r requirements/base.in
-    #   djangorestframework
+    # via -r requirements/base.in
 pyyaml==6.0.1
     # via
     #   edx-django-release-util
@@ -188,7 +191,7 @@ requests[socks]==2.31.0
     #   requests-oauthlib
     #   slumber
     #   social-auth-core
-requests-oauthlib==1.3.1
+requests-oauthlib==1.4.0
     # via social-auth-core
 semantic-version==2.10.0
     # via edx-drf-extensions
@@ -233,9 +236,9 @@ uritemplate==4.1.1
     # via coreapi
 urllib3==2.2.1
     # via requests
-zipp==3.17.0
+zipp==3.18.1
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==69.1.1
+setuptools==69.2.0
     # via -r requirements/base.in
