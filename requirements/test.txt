@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-anki==23.12.1
+anki==24.4.1
     # via -r requirements/base.txt
 annotated-types==0.6.0
     # via
@@ -15,7 +15,7 @@ anyio==4.3.0
     #   -r requirements/base.txt
     #   httpx
     #   openai
-asgiref==3.7.2
+asgiref==3.8.1
     # via
     #   -r requirements/base.txt
     #   django
@@ -32,7 +32,7 @@ cached-property==1.5.2
     # via
     #   -r requirements/base.txt
     #   genanki
-cachetools==5.3.2
+cachetools==5.3.3
     # via tox
 certifi==2024.2.2
     # via
@@ -64,7 +64,7 @@ click==8.1.7
     #   edx-lint
 click-log==0.4.0
     # via edx-lint
-code-annotations==1.6.0
+code-annotations==1.8.0
     # via
     #   -r requirements/test.in
     #   edx-lint
@@ -79,7 +79,7 @@ coreschema==0.0.4
     # via
     #   -r requirements/base.txt
     #   coreapi
-coverage[toml]==7.4.3
+coverage[toml]==7.5.0
     # via
     #   -r requirements/test.in
     #   pytest-cov
@@ -104,8 +104,10 @@ distlib==0.3.8
 distro==1.9.0
     # via
     #   -r requirements/base.txt
+    #   anki
     #   openai
     # via
+    #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
     #   django-cors-headers
     #   django-crum
@@ -135,45 +137,49 @@ django-waffle==4.1.0
     #   -r requirements/base.txt
     #   edx-django-utils
     #   edx-drf-extensions
-djangorestframework==3.14.0
+djangorestframework==3.15.1
     # via
     #   -r requirements/base.txt
     #   django-rest-swagger
     #   drf-jwt
     #   edx-drf-extensions
+dnspython==2.6.1
+    # via
+    #   -r requirements/base.txt
+    #   pymongo
 drf-jwt==1.19.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-auth-backends==4.2.0
+edx-auth-backends==4.3.0
     # via -r requirements/base.txt
-edx-django-release-util==1.3.0
+edx-django-release-util==1.4.0
     # via -r requirements/base.txt
-edx-django-utils==5.10.1
+edx-django-utils==5.12.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
     #   edx-rest-api-client
-edx-drf-extensions==10.2.0
+edx-drf-extensions==10.3.0
     # via -r requirements/base.txt
 edx-lint==5.3.6
     # via -r requirements/test.in
-edx-opaque-keys==2.5.1
+edx-opaque-keys==2.9.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-rest-api-client==5.6.1
+edx-rest-api-client==5.7.0
     # via -r requirements/base.txt
-exceptiongroup==1.2.0
+exceptiongroup==1.2.1
     # via
     #   -r requirements/base.txt
     #   anyio
     #   pytest
-filelock==3.13.1
+filelock==3.13.4
     # via
     #   tox
     #   virtualenv
-frozendict==2.4.0
+frozendict==2.4.2
     # via
     #   -r requirements/base.txt
     #   genanki
@@ -183,7 +189,7 @@ h11==0.14.0
     # via
     #   -r requirements/base.txt
     #   httpcore
-httpcore==1.0.4
+httpcore==1.0.5
     # via
     #   -r requirements/base.txt
     #   httpx
@@ -191,14 +197,15 @@ httpx==0.27.0
     # via
     #   -r requirements/base.txt
     #   openai
-idna==3.6
+idna==3.7
     # via
     #   -r requirements/base.txt
     #   anyio
     #   httpx
     #   requests
-importlib-metadata==7.0.1
+importlib-metadata==6.11.0
     # via
+    #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
     #   markdown
 iniconfig==2.0.0
@@ -214,7 +221,7 @@ jinja2==3.1.3
     #   -r requirements/base.txt
     #   code-annotations
     #   coreschema
-markdown==3.5.2
+markdown==3.6
     # via
     #   -r requirements/base.txt
     #   anki
@@ -226,7 +233,7 @@ mccabe==0.7.0
     # via pylint
 mysqlclient==2.2.4
     # via -r requirements/base.txt
-newrelic==9.7.0
+newrelic==9.9.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -235,17 +242,17 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   requests-oauthlib
     #   social-auth-core
-openai==1.12.0
+openai==1.23.6
     # via -r requirements/base.txt
 openapi-codec==1.3.2
     # via
     #   -r requirements/base.txt
     #   django-rest-swagger
-orjson==3.9.15
+orjson==3.10.1
     # via
     #   -r requirements/base.txt
     #   anki
-packaging==23.2
+packaging==24.0
     # via
     #   pyproject-api
     #   pytest
@@ -254,16 +261,16 @@ pbr==6.0.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==4.2.0
+platformdirs==4.2.1
     # via
     #   pylint
     #   tox
     #   virtualenv
-pluggy==1.4.0
+pluggy==1.5.0
     # via
     #   pytest
     #   tox
-protobuf==4.25.3
+protobuf==5.26.1
     # via
     #   -r requirements/base.txt
     #   anki
@@ -271,15 +278,15 @@ psutil==5.9.8
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pycparser==2.21
+pycparser==2.22
     # via
     #   -r requirements/base.txt
     #   cffi
-pydantic==2.6.2
+pydantic==2.7.1
     # via
     #   -r requirements/base.txt
     #   openai
-pydantic-core==2.16.3
+pydantic-core==2.18.2
     # via
     #   -r requirements/base.txt
     #   pydantic
@@ -305,7 +312,7 @@ pylint-plugin-utils==0.8.2
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==3.13.0
+pymongo==4.4.0
     # via
     #   -r requirements/base.txt
     #   edx-opaque-keys
@@ -319,11 +326,11 @@ pysocks==1.7.1
     # via
     #   -r requirements/base.txt
     #   requests
-pytest==8.0.2
+pytest==8.2.0
     # via
     #   pytest-cov
     #   pytest-django
-pytest-cov==4.1.0
+pytest-cov==5.0.0
     # via -r requirements/test.in
 pytest-django==4.8.0
     # via -r requirements/test.in
@@ -334,9 +341,7 @@ python3-openid==3.2.0
     #   -r requirements/base.txt
     #   social-auth-core
 pytz==2024.1
-    # via
-    #   -r requirements/base.txt
-    #   djangorestframework
+    # via -r requirements/base.txt
 pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
@@ -353,7 +358,7 @@ requests[socks]==2.31.0
     #   requests-oauthlib
     #   slumber
     #   social-auth-core
-requests-oauthlib==1.3.1
+requests-oauthlib==2.0.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core
@@ -381,11 +386,11 @@ sniffio==1.3.1
     #   anyio
     #   httpx
     #   openai
-social-auth-app-django==5.4.0
+social-auth-app-django==5.4.1
     # via
     #   -r requirements/base.txt
     #   edx-auth-backends
-social-auth-core==4.5.3
+social-auth-core==4.5.4
     # via
     #   -r requirements/base.txt
     #   edx-auth-backends
@@ -394,7 +399,7 @@ soupsieve==2.5
     # via
     #   -r requirements/base.txt
     #   beautifulsoup4
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via
     #   -r requirements/base.txt
     #   django
@@ -413,15 +418,15 @@ tomli==2.0.1
     #   pyproject-api
     #   pytest
     #   tox
-tomlkit==0.12.3
+tomlkit==0.12.4
     # via pylint
-tox==4.13.0
+tox==4.15.0
     # via -r requirements/test.in
 tqdm==4.66.2
     # via
     #   -r requirements/base.txt
     #   openai
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   -r requirements/base.txt
     #   anyio
@@ -440,13 +445,13 @@ urllib3==2.2.1
     # via
     #   -r requirements/base.txt
     #   requests
-virtualenv==20.25.1
+virtualenv==20.26.0
     # via tox
-zipp==3.17.0
+zipp==3.18.1
     # via
     #   -r requirements/base.txt
     #   importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==69.1.1
+setuptools==69.5.1
     # via -r requirements/base.txt
