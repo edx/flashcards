@@ -4,35 +4,39 @@
 #
 #    make upgrade
 #
-distlib==0.3.8
+cachetools==6.2.1
+    # via tox
+chardet==5.2.0
+    # via tox
+colorama==0.4.6
+    # via tox
+distlib==0.4.0
     # via virtualenv
-filelock==3.13.1
+filelock==3.19.1
     # via
     #   tox
     #   virtualenv
-packaging==23.2
+packaging==25.0
     # via
     #   pyproject-api
     #   tox
-platformdirs==4.2.0
+platformdirs==4.4.0
     # via
     #   tox
     #   virtualenv
-pluggy==1.4.0
+pluggy==1.6.0
     # via tox
-py==1.11.0
+pyproject-api==1.9.1
     # via tox
-six==1.16.0
-    # via tox
-tomli==2.0.1
+tomli==2.3.0
     # via
     #   pyproject-api
     #   tox
-tox==3.28.0
-    # via
-    #   -r requirements/ci.in
-    #   tox-battery
-tox-battery==0.6.2
+tox==4.30.3
     # via -r requirements/ci.in
-virtualenv==20.25.1
+typing-extensions==4.15.0
+    # via
+    #   tox
+    #   virtualenv
+virtualenv==20.35.3
     # via tox
